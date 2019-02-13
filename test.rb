@@ -1,9 +1,10 @@
-require 'active_support'
-require 'pry'
+require          'active_support'
+require          'pry'
 require_relative './array'
 
-autoload :Reader, './reader'
-autoload :City, './city'
+autoload :Reader,       './reader'
+autoload :Writer,       './writer'
+autoload :City,         './city'
 autoload :Neighborhood, './neighborhood'
 
 csv = Reader.new('./cities2.csv')
