@@ -11,10 +11,21 @@ csv = Reader.new('./cities2.csv')
 
 cities = csv.to_struct
 
+puts "\nMetaprogramming for the Array class 👌"
+Array.meta_methods(csv.header)
+
+neighborhoods = -> (cities) { cities.map { |row| row.neighborhoods } }
+unique = -> (neighborhoods) { neighborhoods.flatten.uniq { |obj| obj.name } }
+uniq_n = unique.call(neighborhoods.call(cities))
+
+puts "\nMethods"
 puts 'csv'
 puts 'cities'
-puts 'cities.sort_arr(col_to_sort)'
+puts 'cities.sort_arr(col_name)'
 puts 'cities.first(n)'
-puts 'cities[index].attr = new_value'
+puts 'cities.select_attr(value) '
+puts 'uniq_n'
+# puts 'writer = Writer.new(csv.header, cities)'
 
 binding.pry
+
