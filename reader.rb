@@ -11,20 +11,11 @@ class Reader
   end
 
   def to_struct
-    block = -> (row) do 
-      neighborhoods = []
-      row = JSON.parse(row)
-      row.each do |attrs|
-        neighborhoods << Neighborhood.new(attrs)
-      end
-      neighborhoods
-    end
+    rows.map { |row| City.new(Hash[header.zip(row)], &block) }
+  end
 
-    cities = []
-    rows.each do |row| 
-      cities << City.new(Hash[header.zip(row)], &block)
-    end
-    cities
+  def block 
+    -> (row) { JSON.parse(row).map { |attrs| Neighborhood.new(attrs) } }
   end
 end
 
