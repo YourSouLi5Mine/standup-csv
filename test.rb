@@ -1,8 +1,8 @@
 require          'active_support'
 require          'pry'
 require_relative './helpers/array'
-require_relative './helpers/test_helper'
 
+autoload :TestHelper,   './helpers/test_helper'
 autoload :Reader,       './helpers/reader'
 autoload :Writer,       './helpers/writer'
 autoload :City,         './models/city'
