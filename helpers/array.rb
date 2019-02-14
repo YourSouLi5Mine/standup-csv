@@ -4,7 +4,28 @@ class Array
   puts 'Array class loaded!'
 
   def sort_arr(col)
-    self.sort! { |a, b| a.send(col) <=> b.send(col) }
+    self.sort! do |a, b|
+      begin
+        a.send(col) <=> b.send(col)
+      rescue ArgumentError, NoMethodError
+        puts "The column name doesn't exist!"
+        puts 'Write it again'
+        col = gets.chomp
+        retry
+      end
+    end
+  end
+
+  def first_rows(n)
+    begin
+      raise TypeError if n == 0
+      self.first(n)
+    rescue TypeError
+      puts 'Wrong type'
+      puts 'Write an integer instead'
+      n = gets.chomp.to_i
+      retry
+    end
   end
 
   def self.meta_methods(methods)

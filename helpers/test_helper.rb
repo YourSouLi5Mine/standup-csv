@@ -1,6 +1,26 @@
 module TestHelper
   def csv(file = nil)
-    csv = Reader.new(file)
+    begin
+      csv = Reader.new(file)
+    rescue Exception
+      puts "The file #{file} doesn't exist or has another extension"
+      puts 'Write the correct file path'
+      file = gets.chomp
+      retry
+    end
+  end
+
+  def nil!(row)
+    row.each_with_index.map do |value, index|
+      begin
+        raise if value.nil?
+        value
+      rescue
+        puts "\nnil on row[#{index}] was found... 🤬"
+        puts 'Write a valid one'
+        value = gets.chomp
+      end
+    end
   end
 
   def cities(csv)
