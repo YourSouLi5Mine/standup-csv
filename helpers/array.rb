@@ -8,7 +8,7 @@ class Array
   end
 
   def self.meta_methods(methods)
-    methods[0..-2].each { |attr| select_by(attr.snakecase) }
+    methods.each { |attr| select_by(attr.snakecase) }
   end
 
   def self.select_by(attr)
