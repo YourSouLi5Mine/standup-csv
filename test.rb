@@ -11,9 +11,9 @@ autoload :Neighborhood, './models/neighborhood'
 include TestHelper
 
 csv        = TestHelper::csv('./csv/cities2.csv')
+csv.header = TestHelper::nil!(csv.header)
 cities     = TestHelper::cities(csv)
 uniq_neigh = TestHelper::uniq(cities)
 
 TestHelper::metaprogramming(csv.header[0..-2])
 TestHelper::methods
-
