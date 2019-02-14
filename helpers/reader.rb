@@ -3,7 +3,7 @@ class Reader
 
   puts 'Reader class loaded!'
 
-  attr_reader :header, :rows
+  attr_accessor :header, :rows
 
   def initialize(file = nil)
     @file = file
