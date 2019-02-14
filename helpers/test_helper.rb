@@ -43,13 +43,13 @@ module TestHelper
     puts 'PRINTS the csv file: csv'
     puts 'PRINTS the csv as classes: cities'
     puts 'SORTS cities: cities.sort_arr(col_name)'
-    puts 'TAKE first n values from cities: cities.first(n)'
+    puts 'TAKE first n values from cities: cities.first_rows(n)'
     puts 'FINDS city (replace select_attr with metaprogramming methods:'
     puts 'cities.select_attr(value) '
     puts 'GETS all unique neighborhoods: uniq_neigh'
     puts 'FOLLOW the 3 steps below to write a csv file with cities changes'
     puts 'writer = Writer.new(csv.header, cities)'
-    puts 'arr = writer.to_a'
-    puts 'writer.to_csv(arr, filename)'
+    puts 'cities_arr = writer.to_a'
+    puts 'writer.to_csv(cities_arr, filename_path)'
   end
 end
