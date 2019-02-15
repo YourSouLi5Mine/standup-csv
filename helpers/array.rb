@@ -1,6 +1,6 @@
 class Array
   require 'snake_camel'
-  
+
   puts 'Array class loaded!'
 
   def sort_arr(col)

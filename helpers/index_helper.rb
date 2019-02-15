@@ -34,7 +34,7 @@ module IndexHelper
 
   def uniq(cities)
     neighborhood = -> (cities) { cities.map { |city| city.neighborhoods } }
-    uniq_neighborhood = -> (neighborhood) do 
+    uniq_neighborhood = -> (neighborhood) do
       neighborhood.flatten.uniq { |uniq_neighborhood| uniq_neighborhood.name }
     end
     uniq_neighborhood.call(neighborhood.call(cities))

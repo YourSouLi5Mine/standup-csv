@@ -8,7 +8,7 @@ class Neighborhood
     end
   end
 
-  def to_h 
+  def to_h
     hash = {}
     self.instance_variables.map { |name| hash[name.to_s[1..-1]] = instance_variable_get(name) }
     hash

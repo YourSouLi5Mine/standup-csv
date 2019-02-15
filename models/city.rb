@@ -11,8 +11,8 @@ class City
     @neighborhoods = block.call(neighborhoods)
   end
 
-  def to_h 
-    self.instance_variables.map do |name| 
+  def to_h
+    self.instance_variables.map do |name|
       value = instance_variable_get(name)
       next neighborhood(value) if value.is_a?(Array)
       value
@@ -20,6 +20,6 @@ class City
   end
 
   def neighborhood(value)
-    value.map { |value| value.to_h } 
+    value.map { |value| value.to_h }
   end
 end
