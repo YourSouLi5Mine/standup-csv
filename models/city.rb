@@ -6,8 +6,8 @@ class City
 
   def initialize(attrs, &block)
     attrs.each do |key, value|
-      self.instance_variable_set("@#{key.snakecase}", value)
-      self.class.send(:attr_accessor, key.snakecase)
+      self.instance_variable_set("@#{key.to_s.snakecase}", value)
+      self.class.send(:attr_accessor, key.to_s.snakecase)
     end
     @neighborhoods = block.call(neighborhoods)
   end
