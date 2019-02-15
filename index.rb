@@ -2,19 +2,18 @@ require          'active_support'
 require          'pry'
 require_relative './helpers/array'
 
-autoload :TestHelper,   './helpers/test_helper'
+autoload :IndexHelper,   './helpers/index_helper'
 autoload :Reader,       './helpers/reader'
 autoload :Writer,       './helpers/writer'
 autoload :City,         './models/city'
 autoload :Neighborhood, './models/neighborhood'
 
-include TestHelper
+include IndexHelper
 
-csv        = TestHelper::csv('./csv/cities2.csv')
-csv.header = TestHelper::nil!(csv.header)
-cities     = TestHelper::cities(csv)
-uniq_neigh = TestHelper::uniq(cities)
+csv                = IndexHelper::csv('./csv/cities2.csv')
+csv.header         = IndexHelper::nil!(csv.header)
+cities             = IndexHelper::cities(csv)
+uniq_neighborhoods = IndexHelper::uniq(cities)
 
-TestHelper::metaprogramming(csv.header[0..-2])
-TestHelper::methods
-binding.pry
+IndexHelper::metaprogramming(csv.header[0..-2])
+IndexHelper::methods
