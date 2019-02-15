@@ -1,4 +1,6 @@
 class City
+  require 'snake_camel'
+
   puts 'City class loaded!'
 
   def initialize(attrs, &block)

@@ -5,8 +5,6 @@ require_relative './helpers/array'
 autoload :IndexHelper,   './helpers/index_helper'
 autoload :Reader,       './helpers/reader'
 autoload :Writer,       './helpers/writer'
-autoload :City,         './models/city'
-autoload :Neighborhood, './models/neighborhood'
 
 include IndexHelper
 

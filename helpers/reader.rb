@@ -1,5 +1,7 @@
 class Reader
-  require 'csv'
+  require          'csv'
+  require_relative '../models/city'
+  require_relative '../models/neighborhood'
 
   puts 'Reader class loaded!'
 
