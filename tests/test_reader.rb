@@ -1,21 +1,33 @@
-require 'minitest/autorun'
-require 'reader'
-require 'pry'
+require          'minitest/autorun'
+require_relative '../helpers/reader'
 
 class TestReader < MiniTest::Test
   def setup
-    @file_rows = { 49 => './csv/cities2.csv', 128 => './csv/cities.csv' }
+    @reader = {
+      128 => Reader.new('./csv/cities.csv'),
+      49 => Reader.new('./csv/cities2.csv')
+    }
   end
 
-  def test_initialize
-    @file_rows.each do |length, filename|
-      assert_equal(length, Reader.new(filename).rows.length)
+  def test_that_rows_length_equals_file_entries_quantity
+    @reader.each do |length, reader|
+      assert_equal(length, reader.rows.length)
     end
   end
 
-  def test_to_struct
-    @file_rows.each do |length, filename|
-      assert_equal(length, Reader.new(filename).to_struct.length)
+  def test_that_to_struct_creates_an_array_with_city_instances
+    @reader.values.each do |reader|
+      assert(reader.to_struct.all? { |city| city.instance_of? City })
+    end
+  end
+
+  def test_that_to_struct_creates_instances_of_neighborhood_inside_city_instances
+    @reader.values.each do |reader|
+      reader.to_struct.each do |city|
+        assert(city.neighborhoods.all? do |neighborhoods|
+          neighborhoods.instance_of? Neighborhood
+        end)
+      end
     end
   end
 end
