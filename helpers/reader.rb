@@ -17,7 +17,10 @@ class Reader
   end
 
   def block 
-    -> (row) { JSON.parse(row).map { |attrs| Neighborhood.new(attrs) } }
+    -> (row) do
+      row = JSON.parse(row) unless row.is_a?(Array)
+      row.map { |attrs| Neighborhood.new(attrs) }
+    end
   end
 end
 
