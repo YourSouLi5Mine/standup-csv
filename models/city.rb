@@ -12,12 +12,12 @@ class City
   def to_h 
     self.instance_variables.map do |name| 
       value = instance_variable_get(name)
-      next nbrhd(value) if value.is_a?(Array)
+      next neighborhood(value) if value.is_a?(Array)
       value
     end
   end
 
-  def nbrhd(value)
+  def neighborhood(value)
     value.map { |value| value.to_h } 
   end
 end

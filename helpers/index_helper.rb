@@ -33,9 +33,11 @@ module TestHelper
   end
 
   def uniq(cities)
-    nbrhd = -> (cities) { cities.map { |city| city.neighborhoods } }
-    uniq_nbrhd = -> (nbrhd) { nbrhd.flatten.uniq { |uniq_nbrhd| uniq_nbrhd.name } }
-    uniq_nbrhd.call(nbrhd.call(cities))
+    neighborhood = -> (cities) { cities.map { |city| city.neighborhoods } }
+    uniq_neighborhood = -> (neighborhood) do 
+      neighborhood.flatten.uniq { |uniq_neighborhood| uniq_neighborhood.name }
+    end
+    uniq_neighborhood.call(neighborhood.call(cities))
   end
 
   def methods
