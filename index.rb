@@ -17,3 +17,4 @@ uniq_neigh = TestHelper::uniq(cities)
 
 TestHelper::metaprogramming(csv.header[0..-2])
 TestHelper::methods
+binding.pry
