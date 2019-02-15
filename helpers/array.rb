@@ -7,7 +7,7 @@ class Array
     self.sort! do |a, b|
       begin
         a.send(col) <=> b.send(col)
-      rescue ArgumentError, NoMethodError
+      rescue TypeError, ArgumentError, NoMethodError
         puts "The column name doesn't exist!"
         puts 'Write it again'
         col = gets.chomp
