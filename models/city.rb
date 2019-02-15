@@ -1,5 +1,6 @@
 class City
-  require 'snake_camel'
+  require          'snake_camel'
+  require_relative './neighborhood'
 
   puts 'City class loaded!'
 

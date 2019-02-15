@@ -1,4 +1,6 @@
 class Neighborhood
+  require 'snake_camel'
+
   puts 'Neighborhood class loaded'
 
   def initialize(attrs)
