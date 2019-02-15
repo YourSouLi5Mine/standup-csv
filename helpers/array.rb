@@ -16,14 +16,14 @@ class Array
     end
   end
 
-  def first_rows(n)
+  def first_rows(input)
     begin
-      raise TypeError if n == 0
-      self.first(n)
+      raise TypeError unless /^\d+$/ =~ input.to_s
+      self.first(input.to_i)
     rescue TypeError
       puts 'Wrong type'
       puts 'Write an integer instead'
-      n = gets.chomp.to_i
+      input  = gets.chomp
       retry
     end
   end
