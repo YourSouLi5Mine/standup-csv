@@ -1,4 +1,4 @@
-module TestHelper
+module IndexHelper
   def csv(file = nil)
     begin
       csv = Reader.new(file)
